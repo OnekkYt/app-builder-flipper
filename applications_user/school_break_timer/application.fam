@@ -1,0 +1,13 @@
+App(
+    appid="school_break_timer",
+    name="School Break Timer",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="school_break_timer_app",
+    requires=["gui", "notification"],
+    stack_size=1 * 1024,
+    fap_icon="icon.png",       # 10x10 px icon, provide your own or omit
+    fap_category="Tools",
+    fap_version=(1, 0),
+    fap_description="Countdown to next break in your school day",
+    fap_author="you",
+)
