@@ -1,0 +1,28 @@
+name: Build FAP
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup ufbt
+        run: pip install ufbt
+
+      - name: Build FAP
+        run: |
+          cd applications_user/school_break_timer
+          ufbt
+
+      - name: Upload FAP artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: school_break_timer.fap
+          path: applications_user/school_break_timer/.ufbt/build/*.fap
